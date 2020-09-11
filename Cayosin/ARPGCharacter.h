@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "ARPGCharacter.generated.h"
 
+class AGunActor; // Forward Declare
+
 UCLASS()
 class CAYOSIN_API AARPGCharacter : public ACharacter
 {
@@ -35,4 +37,10 @@ private:
 public:
 	UPROPERTY(EditAnywhere)
 		float RotationRate = 10.0f;
+
+	UPROPERTY(EditDefaultsOnly) // Don't edit it at runtime
+		TSubclassOf<AGunActor> GunClass; // Only allow subclass of GunActor
+
+	UPROPERTY()
+		AGunActor* Gun;
 };

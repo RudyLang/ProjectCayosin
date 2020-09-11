@@ -4,6 +4,7 @@
 #include "ARPGCharacter.h"
 #include "Components/InputComponent.h"
 #include "Engine/World.h"
+#include "GunActor.h"
 
 // Sets default values
 AARPGCharacter::AARPGCharacter()
@@ -18,6 +19,8 @@ void AARPGCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	// Spawn in blueprint child of gun
+	Gun = GetWorld()->SpawnActor<AGunActor>(GunClass);
 }
 
 // Called every frame
